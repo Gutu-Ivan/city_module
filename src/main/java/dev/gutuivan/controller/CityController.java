@@ -19,16 +19,16 @@ public class CityController {
     public String readCity(@PathVariable Integer id){
         return citiesRepository.readCity(id);
     }
-    @GetMapping("cities")
+    @GetMapping("cities/all")
     public String readAllCities(){
         return citiesRepository.readAllCities();
     }
-    @PutMapping("cities")
+    @PutMapping("cities/{id}")
     public String updateCity(@PathVariable Integer id, @RequestParam String cityName){
         return citiesRepository.updateCity(id, cityName);
     }
-    @DeleteMapping("cities")
-    public String deleteCity(){
-        return "";
+    @DeleteMapping("cities/{id}")
+    public String deleteCity(@PathVariable Integer id){
+        return citiesRepository.deleteCity(id);
     }
 }

@@ -1,6 +1,5 @@
 package dev.gutuivan.repository;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,8 +23,9 @@ public class CitiesRepository {
     public String updateCity(Integer id, String cityName){
         return this.citiesList.set(id, cityName);
     }
-    public String deleteCity(){
-        return "";
+    public String deleteCity(Integer id){
+        this.citiesList.remove(this.citiesList.get(id));
+        return this.citiesList.toString();
     }
 
 
