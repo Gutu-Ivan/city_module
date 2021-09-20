@@ -14,9 +14,13 @@ public class CitiesRepository {
         this.citiesList.add(cityName);
         return cityName + "is created";
     }
-    public String readCity(){
-        return "";
+    public String readCity(Integer id){
+        return this.citiesList.get(id);
     }
+    public String readAllCities(){
+        return this.citiesList.toString();
+    }
+
     public String updateCity(){
         return "";
     }

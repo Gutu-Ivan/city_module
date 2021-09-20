@@ -13,13 +13,13 @@ public class CityController {
     public String createCity(@RequestParam String cityName){
         return citiesRepository.createCity(cityName);
     }
-    @GetMapping("cities")
-    public String readCity(){
-        return "";
-    }
     @GetMapping("cities/{id}")
+    public String readCity(@RequestParam Integer id){
+        return citiesRepository.readCity(id);
+    }
+    @GetMapping("cities")
     public String readAllCities(){
-        return "";
+        return citiesRepository.readAllCities();
     }
     @PutMapping("cities")
     public String updateCity(){
