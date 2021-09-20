@@ -21,8 +21,8 @@ public class CitiesRepository {
         return this.citiesList.toString();
     }
 
-    public String updateCity(){
-        return "";
+    public String updateCity(Integer id, String cityName){
+        return this.citiesList.set(id, cityName);
     }
     public String deleteCity(){
         return "";

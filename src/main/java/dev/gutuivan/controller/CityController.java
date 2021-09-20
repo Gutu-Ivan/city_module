@@ -3,6 +3,8 @@ package dev.gutuivan.controller;
 import dev.gutuivan.repository.CitiesRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
+
 @RestController
 @RequestMapping("/")
 
@@ -14,7 +16,7 @@ public class CityController {
         return citiesRepository.createCity(cityName);
     }
     @GetMapping("cities/{id}")
-    public String readCity(@RequestParam Integer id){
+    public String readCity(@PathVariable Integer id){
         return citiesRepository.readCity(id);
     }
     @GetMapping("cities")
@@ -22,8 +24,8 @@ public class CityController {
         return citiesRepository.readAllCities();
     }
     @PutMapping("cities")
-    public String updateCity(){
-        return "";
+    public String updateCity(@PathVariable Integer id, @RequestParam String cityName){
+        return citiesRepository.updateCity(id, cityName);
     }
     @DeleteMapping("cities")
     public String deleteCity(){
