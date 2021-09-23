@@ -9,8 +9,8 @@ public class CountriesRepository {
     ArrayList<CountryModel> countries = new ArrayList<>();
 
 
-    public String createCountry(String countryName){
-        CountryModel country = new CountryModel(countryName);
+    public String createCountry(String countryName, Integer cityId){
+        CountryModel country = new CountryModel(countryName, cityId);
         this.countries.add(country);
         return String.valueOf(this.countries);
     }

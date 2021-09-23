@@ -10,8 +10,8 @@ public class CountryController {
     CountriesRepository countriesRepository = new CountriesRepository();
 
     @PostMapping("countries")
-    public String createCountry(@RequestParam String countryName){
-        return countriesRepository.createCountry(countryName);
+    public String createCountry(@RequestParam String countryName, @RequestParam Integer cityId){
+        return countriesRepository.createCountry(countryName, cityId);
     }
     @GetMapping("countries/{id}")
     public String readCountry(@PathVariable Integer id){

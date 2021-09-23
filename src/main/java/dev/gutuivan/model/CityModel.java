@@ -5,6 +5,7 @@ public class CityModel {
     private String name = null;
     private static Integer autoincrementId = 0;
 
+
     public CityModel(String cityName) {
         CityModel.autoincrementId++;
         this.id = CityModel.autoincrementId;
