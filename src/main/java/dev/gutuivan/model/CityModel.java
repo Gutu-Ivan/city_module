@@ -4,6 +4,10 @@ public class CityModel {
     private Integer id = null;
     private String name = null;
 
+    public CityModel(String cityName) {
+    }
+
+
     public Integer getId() {
         return id;
     }
