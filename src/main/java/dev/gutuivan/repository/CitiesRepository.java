@@ -8,30 +8,46 @@ import java.util.List;
 
 public class CitiesRepository {
 
-    String[] cities = {"Balti", "Chisinau", "Orhei", "Cahul"};
-    List<String> citiesList = Arrays.asList(cities);
-    ArrayList<CityModel> citiesModel = new ArrayList<CityModel>();
+    ArrayList<CityModel> cities = new ArrayList<>();
 
 
     public String createCity(String cityName){
         CityModel city = new CityModel(cityName);
-        this.citiesModel.add(city);
-        this.citiesList.add(cityName);
-        return String.valueOf(this.citiesModel);
+        this.cities.add(city);
+        return String.valueOf(this.cities);
     }
     public String readCity(Integer id){
-        return this.citiesList.get(id);
+        try{
+            CityModel city = this.cities.stream().filter(element -> id.equals(element.getId())).findFirst().orElse(null);
+            return city.toString();
+        }catch (Exception exception){
+            return "Not found";
+        }
     }
     public String readAllCities(){
-        return this.citiesList.toString();
+        return this.cities.toString();
     }
 
     public String updateCity(Integer id, String cityName){
-        return this.citiesList.set(id, cityName);
+        try{
+            CityModel city = this.cities.stream().filter(element -> id.equals(element.getId())).findFirst().orElse(null);
+            city.setName(cityName);
+            return "City updated";
+        }catch (Exception exception){
+            return "Not found";
+        }
     }
     public String deleteCity(Integer id){
-        this.citiesList.remove(this.citiesList.get(id));
-        return this.citiesList.toString();
+        try{
+            CityModel city = this.cities.stream().filter(element -> id.equals(element.getId())).findFirst().orElse(null);
+            if (city == null){
+                return "Country not found";
+            }
+            this.cities.remove(city);
+            return "Country deleted";
+        }catch (Exception exception){
+            return "Not found";
+        }
     }
 
 
