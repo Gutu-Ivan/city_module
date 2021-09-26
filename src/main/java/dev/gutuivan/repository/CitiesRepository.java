@@ -3,8 +3,6 @@ package dev.gutuivan.repository;
 import dev.gutuivan.model.CityModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class CitiesRepository {
 

@@ -1,12 +1,15 @@
 package dev.gutuivan.model;
 
+import dev.gutuivan.controller.CityController;
+
 public class CountryModel {
     private Integer id = null;
     private String name = null;
     private Integer cityId = null;
     private static Integer autoincrementId = 0;
+    private CityController cityRepository;
 
-    public CountryModel(String countryName, Integer cityId) {
+    public CountryModel(String name, Integer cityId) {
         CountryModel.autoincrementId++;
         this.id = CountryModel.autoincrementId;
         this.name = name;
@@ -38,12 +41,17 @@ public class CountryModel {
         this.name = name;
     }
 
+    public String getCityName(){
+        return this.cityRepository.readCity(cityId);
+    }
+
     @Override
     public String toString() {
         return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", cityId=" + cityId +
+                ", cityName=" + this.getCityName() +
                 '}';
     }
 }
